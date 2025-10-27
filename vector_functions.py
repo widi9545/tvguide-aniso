@@ -39,7 +39,7 @@ def calculate_tensor_symmetries(tensor_index, user_input=False, plotType='None',
     csv_tensor_number = [x for x in range(0, 50)]
     user_tensor_number = [x for x in range(97, 147)]
 
-    aggTensorCSVLocation = 'tensor_scripts_info/DB_Tensors_Rhos_OrigOrientation_CSV.csv'
+    aggTensorCSVLocation = 'databases/DB_Tensors_Rhos_OrigOrientation_CSV.csv'
 
     C = []
     
@@ -85,9 +85,9 @@ def calculate_tensor_symmetries(tensor_index, user_input=False, plotType='None',
 
     rho = Rhos
 
-    Xx = pd.read_csv('NSFProject/xx.csv', names=sphereColumnNames, sep=',', engine='python')
-    Yy = pd.read_csv('NSFProject/yy.csv', names=sphereColumnNames, sep=',', engine='python')
-    Zz = pd.read_csv('NSFProject/zz.csv', names=sphereColumnNames, sep=',', engine='python')
+    Xx = pd.read_csv('databases/xx.csv', names=sphereColumnNames, sep=',', engine='python')
+    Yy = pd.read_csv('databases/yy.csv', names=sphereColumnNames, sep=',', engine='python')
+    Zz = pd.read_csv('databases/zz.csv', names=sphereColumnNames, sep=',', engine='python')
 
     Xx = Xx.fillna(0)
     Yy = Yy.fillna(0)
@@ -1417,7 +1417,7 @@ def tv_fold_model(tensor_index, user_input=False, plotType=None, plotType3D=None
     
 
 
-    aggTensorCSVLocation = 'tensor_scripts_info/DB_Tensors_Rhos_OrigOrientation_CSV.csv'
+    aggTensorCSVLocation = 'databases/DB_Tensors_Rhos_OrigOrientation_CSV.csv'
 
     C = []
 
@@ -1645,9 +1645,9 @@ def tv_fold_model(tensor_index, user_input=False, plotType=None, plotType3D=None
 
     rho = rho
 
-    Xx = pd.read_csv('NSFProject/xx.csv', names=sphereColumnNames, sep=',', engine='python')
-    Yy = pd.read_csv('NSFProject/yy.csv', names=sphereColumnNames, sep=',', engine='python')
-    Zz = pd.read_csv('NSFProject/zz.csv', names=sphereColumnNames, sep=',', engine='python')
+    Xx = pd.read_csv('databases/xx.csv', names=sphereColumnNames, sep=',', engine='python')
+    Yy = pd.read_csv('databases/yy.csv', names=sphereColumnNames, sep=',', engine='python')
+    Zz = pd.read_csv('databases/zz.csv', names=sphereColumnNames, sep=',', engine='python')
 
     Xx = Xx.fillna(0)
     Yy = Yy.fillna(0)
@@ -2613,8 +2613,8 @@ def tv_averaging(t1=None, t2=None, t3=None, t4=None, t5=None, user_input=False, 
 
     returnedUserInputDataFrame = returnUserInputDataFrame(userInputDataFrame)
 
-    #aggTensorCSVLocation = 'NSFProject/AllAggTensorsCSV.csv'
-    aggTensorCSVLocation = 'tensor_scripts_info/DB_Tensors_Rhos_OrigOrientation_CSV.csv'
+    #aggTensorCSVLocation = 'databases/AllAggTensorsCSV.csv'
+    aggTensorCSVLocation = 'databases/DB_Tensors_Rhos_OrigOrientation_CSV.csv'
     tensors_to_average=[t1-1 ,t2-1]
 
     if t3 != None:
@@ -2745,8 +2745,8 @@ def decomposition(tensor_index, user_input=False, plotType='None', userInputData
     user_to_csv_mapping = zip(user_tensor_number, csv_tensor_number)
     user_to_csv_mapping = dict(user_to_csv_mapping)
 
-    #aggTensorCSVLocation = 'NSFProject/AllAggTensorsCSV.csv'
-    aggTensorCSVLocation = 'tensor_scripts_info/DB_Tensors_Rhos_OrigOrientation_CSV.csv'
+    #aggTensorCSVLocation = 'databases/AllAggTensorsCSV.csv'
+    aggTensorCSVLocation = 'databases/DB_Tensors_Rhos_OrigOrientation_CSV.csv'
 
     sampleN = 1
     VRHNumber = 1
@@ -3462,7 +3462,7 @@ def decomposition(tensor_index, user_input=False, plotType='None', userInputData
 
 def print_csv_table(databaseFrame = None, rowAddition=None):
     columnNames = ["Paper Reference", "tensor #", "Rock Type", "density (g/cm3)", "C11 (Mbar)", "C12", "C13","C14", "C15", "C16", "C22", "C23", "C24", "C25", "C26", "C33", "C34", "C35", "C36", "C44", "C45", "C46", "C55", "C56", "C66"]
-    fileLoc = "tensor_scripts_info/DB_Tensors_Rhos_OrigOrientation_CSV.csv"
+    fileLoc = "databases/DB_Tensors_Rhos_OrigOrientation_CSV.csv"
     dbFile = pd.read_csv(fileLoc, names=columnNames, sep=',', engine='python')
     dbFrame = pd.DataFrame(data=dbFile, columns=columnNames)
     if rowAddition != None:
