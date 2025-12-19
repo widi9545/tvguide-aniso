@@ -7,9 +7,10 @@
 ### Gunicorn settings can be modified in order to fit system settings as necessary
 
 
-if [[ `basename "$PWD"` != "tvguide-aniso" ]]; then
+if [[ `basename "$PWD"` != "nsf-dev" ]]; then
     git clone https://github.com/widi9545/tvguide-aniso
-    cd tvguide-aniso
+    mv tvguide-aniso
+    cd nsf-dev
 fi 
 
 export MINIFORGE_LOCATION=$(dirname ${BASH_SOURCE[0]})
