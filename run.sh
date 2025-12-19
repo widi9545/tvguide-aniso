@@ -7,9 +7,9 @@
 ### Gunicorn settings can be modified in order to fit system settings as necessary
 
 
-if [[ `pwd` != "tvguide-aniso-prod" ]]; then
-    mkdir tvguide-aniso-prod
-    cd tvguide-aniso-prod
+if [[ `basename "$PWD"` != "tvguide-aniso" ]]; then
+    git clone https://github.com/widi9545/tvguide-aniso
+    cd tvguide-aniso
 fi 
 
 export MINIFORGE_LOCATION=$(dirname ${BASH_SOURCE[0]})
@@ -29,4 +29,5 @@ fi
 echo "Starting TVGuide-Aniso "
 eval "$(conda shell.bash hook)"
 conda activate $MINIFORGE_LOCATION/tvguide
-gunicorn -w 3 -t 6 -b localhost:8000 tvguide:server
+pkill -9 gunicorn
+gunicorn -w 3 -t 6 -b 128.138.136.178:8000 tvguide:server

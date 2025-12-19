@@ -376,7 +376,7 @@ body = html.Div([
      style={'margin-top':'50px', 'display':'flex'}
     ),
     html.Br(),
-    html.Div(id='tensors_not_filled', children=['You have not filled in all of the Tensors! This will result in a run time error - please amend your entry'],
+    html.Div(id='tensors_not_filled', children=['You have not correctly filled in the number of tensors - you need 22. This will result in a run time error - please amend your entry.'],
     style={'font-style': 'oblique', 'color':'black', 'text-decoration':'underline', 'display':'none'}
   
     ),
@@ -397,7 +397,7 @@ body = html.Div([
         ),
       html.Br(),
       dcc.Textarea(id='text_area_input_tensor',
-      value='Input your own tensors here by copy and pasting into the field above as comma separated elements. Click on Submit Input Tensor when done with the tensor. You can input multiple tensors, once you are done click on Enter Your Own Tensor at the top to remove these displays',
+      value='Input your own tensors here by copy and pasting into the field above as comma separated elements. Click on Submit Input Tensor when done with the tensor. You can input multiple tensors (one by one), once you are done click on Enter Your Own Tensor at the top to remove these displays',
       style={'width':'1009px', 'resize':'none'},
       draggable=False,
       disabled=True),
