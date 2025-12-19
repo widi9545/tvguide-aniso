@@ -6,6 +6,12 @@
 ### If found, will start tvguide-aniso with custom gunicorn settings
 ### Gunicorn settings can be modified in order to fit system settings as necessary
 
+
+if [[ `pwd` != "tvguide-aniso-prod" ]]; then
+    mkdir tvguide-aniso-prod
+    cd tvguide-aniso-prod
+fi 
+
 export MINIFORGE_LOCATION=$(dirname ${BASH_SOURCE[0]})
 
 
