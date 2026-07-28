@@ -884,6 +884,7 @@ def calculate_tensor_symmetries(tensor_index, user_input=False, plotType='None',
 
 
         fig1.update_layout(
+            height=1000,
             scene=dict(
             xaxis= dict(nticks=5, range=[-2,2], visible=True, showbackground=False, title=dict(font=dict(size=12, color='#000000'), text='X Axis')),
             yaxis= dict(nticks=5, range=[-2,2], visible=True, showbackground=False, title=dict(font=dict(size=12, color='#000000'), text='Y Axis')),
@@ -915,6 +916,7 @@ def calculate_tensor_symmetries(tensor_index, user_input=False, plotType='None',
         vpFig.add_trace(go.Surface(z=z1, y=y1, x=x1, showscale=False))
 
         vpFig.update_layout(
+            height=1000,
             scene=dict(
             xaxis= dict(nticks=5, range=[-2,2], visible=True, showbackground=False, title=dict(font=dict(size=12, color='#000000'), text='X Axis')),
             yaxis= dict(nticks=5, range=[-2,2], visible=True, showbackground=False, title=dict(font=dict(size=12, color='#000000'), text='Y Axis')),
@@ -951,6 +953,7 @@ def calculate_tensor_symmetries(tensor_index, user_input=False, plotType='None',
         ), 1, 1)
         vs1Fig.add_trace(go.Surface(z=z1, y=y1, x=x1, showscale=False))
         vs1Fig.update_layout(
+            height=1000,
             scene=dict(
             xaxis= dict(nticks=5, range=[-2,2], visible=True, showbackground=False, title=dict(font=dict(size=12, color='#000000'), text='X Axis')),
             yaxis= dict(nticks=5, range=[-2,2], visible=True, showbackground=False, title=dict(font=dict(size=12, color='#000000'), text='Y Axis')),
@@ -986,6 +989,7 @@ def calculate_tensor_symmetries(tensor_index, user_input=False, plotType='None',
         ), 1, 1)
         vs2Fig.add_trace(go.Surface(z=z1, y=y1, x=x1, showscale=False))
         vs2Fig.update_layout(
+            height=1000,
             scene=dict(
             xaxis= dict(nticks=5, range=[-2,2], visible=True, showbackground=False, title=dict(font=dict(size=12, color='#000000'), text='X Axis')),
             yaxis= dict(nticks=5, range=[-2,2], visible=True, showbackground=False, title=dict(font=dict(size=12, color='#000000'), text='Y Axis')),
@@ -1022,6 +1026,7 @@ def calculate_tensor_symmetries(tensor_index, user_input=False, plotType='None',
                 
         vpvs1Fig.add_trace(go.Surface(z=z1, y=y1, x=x1, showscale=False))
         vpvs1Fig.update_layout(
+            height=1000,
             scene=dict(
             xaxis= dict(nticks=5, range=[-2,2], visible=True, showbackground=False, title=dict(font=dict(size=12, color='#000000'), text='X Axis')),
             yaxis= dict(nticks=5, range=[-2,2], visible=True, showbackground=False, title=dict(font=dict(size=12, color='#000000'), text='Y Axis')),
@@ -1960,6 +1965,8 @@ def tv_fold_model(tensor_index, user_input=False, plotType=None, plotType3D=None
             xaxis=dict(range=[-3,3]), 
             showlegend=True,
             height=1000,
+            width=1800,
+            autosize=False,
             margin=dict(l=20, r=20, t=20, b=20),
             modebar_add='drawclosedpath',
             newshape=dict(fillcolor='turquoise'),
@@ -2101,6 +2108,8 @@ def tv_fold_model(tensor_index, user_input=False, plotType=None, plotType3D=None
             showlegend=True,
             margin=dict(l=20, r=20, t=20, b=20),
             height=1000,
+            width=1800,
+            autosize=False,
             minreducedheight=750,
             minreducedwidth=1500,
             title={
@@ -2185,6 +2194,8 @@ def tv_fold_model(tensor_index, user_input=False, plotType=None, plotType3D=None
             showlegend=True,
             margin=dict(l=20, r=20, t=20, b=20),
             height=1000,
+            width=1800,
+            autosize=False,
             plot_bgcolor='rgba(0,0,0,0)',
             title={
                 'text': 'VS1 <br> Max : {} Min {} '.format(np.around(np.nanmax(z_data), 4), np.around(np.nanmin(z_data), 4)),
@@ -2263,6 +2274,8 @@ def tv_fold_model(tensor_index, user_input=False, plotType=None, plotType3D=None
             margin=dict(l=20, r=20, t=20, b=20), 
             showlegend=True,
             height=1000,
+            width=1800,
+            autosize=False,
             plot_bgcolor='rgba(0,0,0,0)',
             title={
                 'text': 'VS2 <br> Max : {} Min {} '.format(np.around(np.nanmax(z_data), 4), np.around(np.nanmin(z_data), 4)),
@@ -2342,6 +2355,8 @@ def tv_fold_model(tensor_index, user_input=False, plotType=None, plotType3D=None
             xaxis=dict(range=[-3,3]), 
             showlegend=True,
             height=1000,
+            width=1800,
+            autosize=False,
             margin=dict(l=20, r=20, t=20, b=20),
             plot_bgcolor='rgba(0,0,0,0)',
             title={
@@ -2445,6 +2460,9 @@ def tv_fold_model(tensor_index, user_input=False, plotType=None, plotType3D=None
 
 
         fig1.update_layout(
+            height=1000,
+            width=1800,
+            autosize=False,
             scene=dict(
             xaxis= dict(nticks=5, range=[-2,2], visible=True, showbackground=False, title=dict(font=dict(size=12, color='#000000'), text='X Axis')),
             yaxis= dict(nticks=5, range=[-2,2], visible=True, showbackground=False, title=dict(font=dict(size=12, color='#000000'), text='Y Axis')),
@@ -2476,6 +2494,9 @@ def tv_fold_model(tensor_index, user_input=False, plotType=None, plotType3D=None
         vpFig.add_trace(go.Surface(z=z1, y=y1, x=x1, showscale=False))
 
         vpFig.update_layout(
+            height=1000,
+            width=1800,
+            autosize=False,
             scene=dict(
             xaxis= dict(nticks=5, range=[-2,2], visible=True, showbackground=False, title=dict(font=dict(size=12, color='#000000'), text='X Axis')),
             yaxis= dict(nticks=5, range=[-2,2], visible=True, showbackground=False, title=dict(font=dict(size=12, color='#000000'), text='Y Axis')),
@@ -2511,6 +2532,9 @@ def tv_fold_model(tensor_index, user_input=False, plotType=None, plotType3D=None
         ), 1, 1)
         vs1Fig.add_trace(go.Surface(z=z1, y=y1, x=x1, showscale=False))
         vs1Fig.update_layout(
+            height=1000,
+            width=1800,
+            autosize=False,
             scene=dict(
             xaxis= dict(nticks=5, range=[-2,2], visible=True, showbackground=False, title=dict(font=dict(size=12, color='#000000'), text='X Axis')),
             yaxis= dict(nticks=5, range=[-2,2], visible=True, showbackground=False, title=dict(font=dict(size=12, color='#000000'), text='Y Axis')),
@@ -2546,6 +2570,9 @@ def tv_fold_model(tensor_index, user_input=False, plotType=None, plotType3D=None
         ), 1, 1)
         vs2Fig.add_trace(go.Surface(z=z1, y=y1, x=x1, showscale=False))
         vs2Fig.update_layout(
+            height=1000,
+            width=1800,
+            autosize=False,
             scene=dict(
             xaxis= dict(nticks=5, range=[-2,2], visible=True, showbackground=False, title=dict(font=dict(size=12, color='#000000'), text='X Axis')),
             yaxis= dict(nticks=5, range=[-2,2], visible=True, showbackground=False, title=dict(font=dict(size=12, color='#000000'), text='Y Axis')),
@@ -2582,6 +2609,9 @@ def tv_fold_model(tensor_index, user_input=False, plotType=None, plotType3D=None
                 
         vpvs1Fig.add_trace(go.Surface(z=z1, y=y1, x=x1, showscale=False))
         vpvs1Fig.update_layout(
+            height=1000,
+            width=1800,
+            autosize=False,
             scene=dict(
             xaxis= dict(nticks=5, range=[-2,2], visible=True, showbackground=False, title=dict(font=dict(size=12, color='#000000'), text='X Axis')),
             yaxis= dict(nticks=5, range=[-2,2], visible=True, showbackground=False, title=dict(font=dict(size=12, color='#000000'), text='Y Axis')),

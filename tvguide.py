@@ -590,7 +590,7 @@ FOLD_TAB_PLOT_TYPES = {
     'fold-model-tab-10': ('3DVPVS1', True),
 }
 
-FOLD_GRAPH_STYLE = {'text-align': 'center', 'top': '15px', 'max-height': '1000px', 'min-width': '1600px'}
+FOLD_GRAPH_STYLE = {'text-align': 'center', 'top': '15px', 'max-height': '1000px', 'min-width': '1800px'}
 
 # Database tensors are numbered 1-96; user-input tensors start at 97
 FIRST_USER_TENSOR = 97
