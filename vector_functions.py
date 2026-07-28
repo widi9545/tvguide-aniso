@@ -3470,7 +3470,7 @@ def print_csv_table(databaseFrame = None, rowAddition=None):
         if isinstance(databaseFrame, str):
             databaseFrame = json.loads(databaseFrame)
         databaseFrame = pd.DataFrame.from_dict(databaseFrame)
-        databaseFrame = databaseFrame.append(rowAddition, ignore_index=True)
+        databaseFrame = pd.concat([databaseFrame, pd.DataFrame([rowAddition])], ignore_index=True)
         #databaseFrame = databaseFrame.({"density (g/cm3)": float, "C11 (Mbar)": float})
         dbFrame = databaseFrame
 
