@@ -6,6 +6,8 @@
 ### If found, will start tvguide-aniso with custom gunicorn settings
 ### Gunicorn settings can be modified in order to fit system settings as necessary
 
+### Stop on the first failed step (e.g. a failed environment build) instead of continuing
+set -e
 
 ### This script lives in the repo root - always run from there, whatever the folder is named
 cd "$(dirname "${BASH_SOURCE[0]}")"
@@ -37,11 +39,11 @@ conda activate $MINIFORGE_LOCATION/tvguide
 ### Stop a previous instance of this app only - not every gunicorn on the machine
 PIDFILE="$MINIFORGE_LOCATION/tvguide.pid"
 if [ -f "$PIDFILE" ]; then
-    kill "$(cat "$PIDFILE")" 2>/dev/null
+    kill "$(cat "$PIDFILE")" 2>/dev/null || true
     rm -f "$PIDFILE"
 fi
 ### Kill any other previous gunicorn instances
-pkill -f "gunicorn.*tvguide:server" 2>/dev/null
+pkill -f "gunicorn.*tvguide:server" 2>/dev/null || true
 sleep 1
 
-gunicorn -w 3 -t 6 --timeout 90 -b "${TVGUIDE_BIND:-0.0.0.0:8000}" --pid "$PIDFILE" tvguide:server
+gunicorn -w 3 --timeout 90 -b "${TVGUIDE_BIND:-0.0.0.0:8000}" --pid "$PIDFILE" tvguide:server

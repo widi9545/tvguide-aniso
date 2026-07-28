@@ -7,28 +7,41 @@
 
 ### Local Mamba Installation - should be located in root of tvguide-aniso
 
+### Stop on the first failed step so a broken install is reported instead of ignored
+set -e
 
+### This script lives in the repo root - always run from there, whatever the folder is named
+cd "$(dirname "${BASH_SOURCE[0]}")"
+export MINIFORGE_LOCATION=$PWD
 
-export MINIFORGE_LOCATION=$(dirname ${BASH_SOURCE[0]})
-
-### Checking for "tvguide" environment - if it exists, skip
-VENV_NAME=$(dirname ${BASH_SOURCE[0]})/tvguide
-if [ -d $VENV_NAME ]; then
+### Checking for "tvguide" environment - if it is complete, skip
+VENV_NAME=$PWD/tvguide
+if [ -x "$VENV_NAME/bin/python" ]; then
     echo "$VENV_NAME already exists. Skipping environment creation"
-    exit 0 
-fi 
+    exit 0
+fi
+if [ -d "$VENV_NAME" ]; then
+    echo "$VENV_NAME exists but has no python - a previous install was interrupted."
+    echo "Remove it and rerun:  rm -rf $VENV_NAME"
+    exit 1
+fi
 
 
 ### Checking for mamba/conda commands - if the command exists, user has own mamba/conda installation, and can use that instead
 if [[ -z `command -v conda` || -z `command -v mamba` ]]; then
     echo "Conda/Mamba commands not found - initiating installation"
+    if [ -z "`command -v wget`" ]; then
+        echo "wget is required to download Miniforge - install wget and rerun"
+        exit 1
+    fi
     wget "https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-$(uname)-$(uname -m).sh"
     MINIFORGE_PREFIX="$MINIFORGE_LOCATION/.miniforge3"
     bash Miniforge3-$(uname)-$(uname -m).sh -b -p $MINIFORGE_PREFIX
     rm Miniforge3-$(uname)-$(uname -m).sh
     CONDA_PROFILE="$MINIFORGE_PREFIX/etc/profile.d/conda.sh"
 else
-    CONDA_PROFILE=$CONDA_PREFIX/etc/profile.d/conda.sh
+    ### conda info --base works whether or not an env is currently active
+    CONDA_PROFILE="$(conda info --base)/etc/profile.d/conda.sh"
     echo "Conda/Mamba exists already - continuing"
 fi
 
@@ -40,6 +53,6 @@ fi
 source $CONDA_PROFILE
 echo "Using $CONDA_EXE to create $VENV_NAME ."
 conda create --prefix $VENV_NAME python=3.11 --yes
-conda activate $PWD/$VENV_NAME
+conda activate $VENV_NAME
 mamba install pandas=1.5.3 numpy scipy dash=4.4.0 dash-bootstrap-components gunicorn matplotlib iteration_utilities --yes
 exit 0 

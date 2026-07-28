@@ -14,7 +14,10 @@ built with Python, Plotly Dash, and gunicorn.
 
 On first run this calls `build.sh`, which creates a self-contained conda environment in
 `./tvguide` (downloading Miniforge if no conda/mamba is on the system). It then starts
-gunicorn and serves the app at `http://0.0.0.0:8000`.
+gunicorn and serves the app at `http://0.0.0.0:8000`. Requires Linux with bash and wget.
+
+The environment pins Python 3.11, pandas 1.5.3, and Dash 4.4.0, these versions are required to run the software as tested. If an environment build is interrupted, remove the half-built env with
+`rm -rf tvguide` and rerun.
 
 Optional settings can go in a gitignored `.env` file in the repo root:
 

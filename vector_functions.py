@@ -3139,7 +3139,7 @@ def decomposition(tensor_index, user_input=False, plotType='None', userInputData
             OrthoA[0,:] = Ortho
 
             if np.linalg.norm(Vec_5) == 0:
-                Mon = 0
+                Mono = 0
                 Tric = 0
             else:
 
@@ -3391,7 +3391,7 @@ def decomposition(tensor_index, user_input=False, plotType='None', userInputData
 
             Ortho = (1-(np.divide((np.linalg.norm(Vec_5)), np.linalg.norm(Vec_4))))*(100-(Iso+Hex+Tet))
             if np.linalg.norm(Vec_5) == 0:
-                Mon = 0
+                Mono = 0
                 Tric = 0
             else:
 
